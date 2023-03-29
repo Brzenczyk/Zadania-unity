@@ -21,11 +21,13 @@ public class PlayerController : MonoBehaviour
         {
             //rb.AddForce(new Vector2(0, strength), ForceMode2D.Impulse);
             rb.velocity = Vector2.up * strength;
+            Audiomanager.Instace.PlaySFX("jump");
         }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
         GameManager.Instance.OnGameOver();
+        Audiomanager.Instace.PlaySFX("hit");
     }
 }
